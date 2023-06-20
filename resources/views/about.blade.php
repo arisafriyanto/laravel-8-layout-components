@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-app-layout title="About">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>About</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
+    @slot('styles')
+        <style>
+            body {
+                background-color: indigo;
+            }
+        </style>
+    @endslot
 
-<body>
-    @include('layouts.navbar')
-
-    About
-</body>
-
-</html>
+    This is about page.
+</x-app-layout>

@@ -1,18 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+{{-- @extends('layouts.app', ['title' => 'Home'])
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
+@section('content')
+    @component('components.alert')
+        @slot('title')
+            This is Header wih <strong>strong</strong> tag
+        @endslot
 
-<body>
-    @include('layouts.navbar')
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, corrupti?
 
-    This is home page.
-</body>
+        @slot('footer')
+            <strong>Footer</strong>
+        @endslot
+    @endcomponent --}}
 
-</html>
+
+{{-- <x-alert>
+
+
+        <x-slot name='title'>
+            This is title
+        </x-slot>
+
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi, corrupti?
+
+        <x-slot name='footer'>
+            Footer
+        </x-slot>
+
+    </x-alert> --}}
+
+{{-- <p>Ini adalah halaman home</p>
+@endsection --}}
+
+<x-app-layout>
+    Ini adalah halaman home
+</x-app-layout>

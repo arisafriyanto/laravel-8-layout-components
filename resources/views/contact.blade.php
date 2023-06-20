@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-app-layout title="Contact">
+    <h1>Contact Page</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contact</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
-
-<body>
-    @include('layouts.navbar')
-    Contact
-</body>
-
-</html>
+    <form action="/contact" method="post">
+        @csrf
+        <button type="submit">Send</button>
+    </form>
+</x-app-layout>
