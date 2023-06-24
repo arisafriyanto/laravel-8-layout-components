@@ -5,7 +5,7 @@
     <div style="margin-bottom: 15px">
         <form action="/tasks" method="post">
             @csrf
-            <input type="text" name="list" placeholder="The name of the task">
+            <input type="text" name="list" placeholder="The name of the task" autofocus>
             <button type="submit" class="btn">Create</button>
         </form>
     </div>
