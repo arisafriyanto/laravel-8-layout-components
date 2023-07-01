@@ -12,5 +12,6 @@ class Task extends Model
     // if table no plural/more
     // protected $table = 'another_table';
 
+    // protected $guarded = [];
     protected $fillable = ["list"];
 }

@@ -1,31 +1,31 @@
 <x-app-layout title='Tasks'>
 
-    <h1>Tasks</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                @include('tasks._create')
+            </div>
+        </div>
 
-    <div style="margin-bottom: 15px">
-        <form action="/tasks" method="post">
-            @csrf
-            <input type="text" name="list" placeholder="The name of the task" autofocus>
-            <button type="submit" class="btn">Create</button>
-        </form>
+        <ul class="list-group mt-4">
+            @foreach ($tasks as $index => $task)
+                <li class="list-group-item d-flex align-items-center justify-content-between">
+                    {{ $index + 1 }}. {{ $task->list }}
+
+                    <div class="d-flex">
+                        <a class="btn btn-primary me-2" href="{{ route('tasks.edit', $task->id) }}">Edit</a>
+
+                        <form action="{{ route('tasks.destroy', $task->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </li>
+            @endforeach
+        </ul>
     </div>
 
-    <ul style="list-style-type: none;">
-        @foreach ($tasks as $index => $task)
-            <li style="margin-bottom: 15px">
-                {{ $index + 1 }}. {{ $task->list }}
-                <div>
-                    <a style="color: blue;" href="/tasks/{{ $task->id }}/edit">Edit</a>
-
-                    <form action="/tasks/{{ $task->id }}" method="post" style="display: inline">
-                        @csrf
-                        @method('delete')
-
-                        <button type="submit">Delete</button>
-                    </form>
-                </div>
-            </li>
-        @endforeach
-    </ul>
 
 </x-app-layout>

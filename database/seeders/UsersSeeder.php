@@ -18,6 +18,7 @@ class UsersSeeder extends Seeder
         collect([
             [
                 'name' => 'Aris Afriyanto',
+                'username' => 'arisafriyanto',
                 'email' => 'aris@gmail.com',
                 'password' => bcrypt('password'),
                 'email_verified_at' => Carbon::now(),
@@ -26,6 +27,7 @@ class UsersSeeder extends Seeder
             ],
             [
                 'name' => 'Fitri Awalia',
+                'username' => 'fitriawalia',
                 'email' => 'fitri@gmail.com',
                 'password' => bcrypt('password'),
                 'email_verified_at' => Carbon::now(),
