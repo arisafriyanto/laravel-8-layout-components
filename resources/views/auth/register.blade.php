@@ -10,7 +10,7 @@
                             <div class="mb-4">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" name="email" id="email" value="{{ old('email') }}"
-                                    class="form-control">
+                                    class="form-control" autofocus>
 
                                 @error('email')
                                     <small>*{{ $message }}</small>

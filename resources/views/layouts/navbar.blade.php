@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg border-bottom" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg border-bottom" style="background-color: #e3f2fd; height: 70px;">
     <div class="container">
         <a class="navbar-brand" href="/">Laravel 8</a>
 
@@ -33,29 +33,37 @@
 
 
             <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
-                </li>
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('login') }}">Login</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">Register</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ route('register') }}">Register</a>
+                    </li>
+                @else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
 
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endguest
 
-                {{-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li> --}}
             </ul>
 
         </div>
