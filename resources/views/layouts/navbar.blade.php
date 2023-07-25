@@ -15,7 +15,7 @@
                         <a class="nav-link active" href="{{ $url }}">{{ $name }}</a>
                     </li>
                 @endforeach
-                <li class="nav-item dropdown">
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Dropdown
@@ -28,14 +28,19 @@
                         </li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
 
 
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('register') }}">Register</a>
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                </li>
+
 
                 {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

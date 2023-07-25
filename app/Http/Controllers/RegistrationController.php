@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegistrationRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -13,22 +14,15 @@ class RegistrationController extends Controller
         return view('auth.register');
     }
 
-    public function store(Request $request)
+    public function store(RegistrationRequest $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'min:3'],
-            'username' => ['required', 'string', 'min:3', 'alpha_num', 'max:25'],
-            'email' => ['required', 'email'],
-            'password' => ['required', 'min:3']
-        ]);
+        // $attributes = $request->all();
+        // $attributes['password'] = Hash::make($request->password);
 
-        User::create([
-            'email' => $request->email,
-            'name' => $request->name,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-        ]);
+        User::create($request->all());
 
-        return redirect('/');
+        // session()->flash('success', 'Thank you, you are now registered.');
+
+        return redirect('/')->with('success', 'Thank you, you are now registered.');
     }
 }

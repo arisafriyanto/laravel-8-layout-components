@@ -25,8 +25,8 @@ class Navbar extends Component
     {
         $navbar = [
             'Home' => '/',
-            'About' => '/about',
-            'Contact' => '/contact',
+            // 'About' => '/about',
+            // 'Contact' => '/contact',
             'Tasks' => '/tasks',
             'Users' => '/users',
         ];
